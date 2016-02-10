@@ -34,7 +34,8 @@
     update();
     function update(){
         var lookup = $("#lookup").val();
-        var lookup_url = lookup.replace('+','%2B')
+        var lookup_url = encodeURIComponent(lookup);
+        
         if($("#range01").is(':checked')){
             mapdraw("#map", lookup_url, lookup, 0, 1);
         }else{
