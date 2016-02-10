@@ -21,11 +21,11 @@
 </head>
 <body>
 <p>
-    To look up: <input type="text" id="lookup">
+    To look up: <input type="text" id="lookup" onchange="update();" value='1.5*m56 + 3.5*m55'>
 </p>
 
 <p>
-    <input type="checkbox" id="range01" checked onchange="update();">
+    <input type="checkbox" id="range01" onchange="update();">
     Range from 0 to 1
 </p>
     <div id="map" class="map"></div>
@@ -33,11 +33,12 @@
     <script type="text/javascript">
     update();
     function update(){
-        var lookup = $("#lookup").html();
+        var lookup = $("#lookup").val();
+        var lookup_url = lookup.replace('+','%2B')
         if($("#range01").is(':checked')){
-            mapdraw("#map", lookup, lookup, 0, 1);
+            mapdraw("#map", lookup_url, lookup, 0, 1);
         }else{
-            mapdraw("#map", lookup, lookup);
+            mapdraw("#map", lookup_url, lookup);
         }
 
     }

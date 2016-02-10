@@ -5,7 +5,7 @@ import glob
 import os
 from natsort import natsorted
 
-conn = sqlite3.connect('copewell.db')
+conn = sqlite3.connect('public/copewell.db')
 c = conn.cursor()
 c.execute('DROP TABLE IF EXISTS measure')
 
